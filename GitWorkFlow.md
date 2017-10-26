@@ -4,11 +4,12 @@
 
 ## 一、认识GitFlow
 
-顾名思义，工作流（Workflow）即指工作流程。本文不会介绍工作流本身，理由如下。
+2010年1月5号，Vincent Driessen在个人博客网站上更新了一篇文章[A Successful Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/)，而这即是GitFlow的首次亮相。
+其中，flow，工作流，即指工作流程。本文不会介绍工作流本身，理由如下。
 
 >工作流（WorkFlow）本身不是一个初级主题，背后的本质问题其实是有效的项目流程管理和高效的开发协同约定，不仅是Git或SVN等VCS或SCM工具的使用。
 
-上面一段话摘自[xirong在segmentationfault上整理的文章](https://segmentfault.com/a/1190000002918123)。可以看到，workflow已经超出了GitFlow的讨论范围。
+上面一段话摘自[xirong在segmentationfault上整理的文章](https://segmentfault.com/a/1190000002918123)。可以看到，workflow已经超出了GitFlow的讨论范围。另外，GitFlow实际上是一种工作模式，并不是说基于Git只能进行GitFlow模式的工作。其他常见的软件开发模型，诸如瀑布模型、迭代开发模型、以及敏捷开发模型均可以使用Git进行工作。每种模型有各自的应用场景。而GitFlow重点解决的是源代码在开发过程中的各种冲突导致开发活动混乱的问题，在解决以上开发模型的冲突时大显身手。
 
 ### 工作方式
 
@@ -41,6 +42,12 @@ GitFlow工作流使用2个分支来记录项目的历史：master分支存储正
 至此，GitFlow的大致流程就介绍完了。
 
 ## 二、为何使用GitFlow
+
+对于这个问题，我们需要追本溯源。来看看Vincent Driessen的原文中阐述选择Git而非SVN的理由。
+
+>From the classic CVS/Subversion world I came from, merging/branching has always been considered a bit scary (“beware of merge conflicts, they bite you!”) and something you only do every once in a while.But with Git, these actions are extremely cheap and simple, and they are considered one of the core parts of your daily workflow, really.
+
+这说明，在2010年时，已经有人将代码版本的管理视作开发工作中非常基础的需求。这实际上也是因为，2010年前后，正是互联网的又一次飞跃时期。云计算、分布式等概念的兴起与实施，需要我们方便快捷地管理代码、协作。
 
 ## 三、如何使用GitFlow
 
