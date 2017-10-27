@@ -33,6 +33,12 @@ Feature branches tracks the development of features. Release branches perpare fo
 
 Because it is simple and effecient. 
 
+>While there is nothing really shocking new to this branching model, the “big picture” figure that this post began with has turned out to be tremendously useful in our projects. It forms an elegant mental model that is easy to comprehend and allows team members to develop a shared understanding of the branching and releasing processes.
+
+This is part of Vincent Driessen's article. The practice turn out to be a greate success in dealing with the problem we meet during the development of software and teamworking. 
+
+As we know, due to the convenience of git, branching and merging have become a daily routine of software development. Besides, the evolution of social network, microservice and  cloud computing demands higher standard of teamwork and effeciency. So it is necessary to find a model which completes those task fluently. And GitFlow is among the best choices.
+
 ## How can we use GitFlow? 
 
 #### Feature branches
@@ -63,6 +69,28 @@ May branch off from: develop
 
 Must merge back into: develop and master
 
+1.Creating a release branch
+
+`$ git checkout -b release-1.2 develop`
+
+`$ ./bump-version.sh 1.2`
+
+`$ git commit -a -m "Bumped version number to 1.2"`
+
+2.Finishing a release branch
+
+`$ git checkout master`
+
+`$ git merge --no-ff release-1.2`
+
+`$ git tag -a 1.2`
+
+`$ git checkout develop`
+
+`$ git merge --no-ff release-1.2`
+
+`$ git branch -d release-1.2`
+
 ![](images/pic3.png)
 
 #### Hotfix branches
@@ -70,6 +98,12 @@ Must merge back into: develop and master
 May branch off from: master
 
 Must merge back into: develop and master
+
+`$ git checkout -b hotfix-1.2.1 master`
+
+`$ ./bump-version.sh 1.2.1`
+
+`$ git commit -a -m "Bumped version number to 1.2.1"`
 
 ![](images/pic4.png)
 
