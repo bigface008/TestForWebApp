@@ -41,6 +41,20 @@ May branch off from: develop
 
 Must merge back into: develop 
 
+1. Creating a feature branch
+
+`$ git checkout -b myfeature develop`
+
+2. Incorporating a finished feature on develop 
+
+`$ git checkout develop`
+
+`$ git merge --no-ff myfeature`
+
+`$ git branch -d myfeature`
+
+`$ git push origin develop`
+
 ![](images/pic2.png)
 
 #### Release branches
